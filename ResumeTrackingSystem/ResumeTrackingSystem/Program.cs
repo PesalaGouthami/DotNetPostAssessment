@@ -1,4 +1,8 @@
 
+using Microsoft.EntityFrameworkCore;
+using ResumeTrackingSystem.Data;
+using ResumeTrackingSystemAPI.Model;
+
 namespace ResumeTrackingSystem
 {
     public class Program
@@ -13,6 +17,8 @@ namespace ResumeTrackingSystem
             // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
+            builder.Services.AddDbContext<EmployeeDbContext>(opts => opts.UseNpgsql("Host=localhost;Database=resumetrack;Username=postgres;Password=Izhar@927"));
+            builder.Services.AddScoped<IEmployeeDataAccess, EmployeeDataAccess>();
 
             var app = builder.Build();
 
