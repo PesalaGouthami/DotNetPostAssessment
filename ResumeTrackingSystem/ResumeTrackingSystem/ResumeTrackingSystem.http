@@ -1,0 +1,6 @@
+@ResumeTrackingSystem_HostAddress = http://localhost:5190
+
+GET {{ResumeTrackingSystem_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
